@@ -21,37 +21,145 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".View.Activity.MainActivity"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@color/dark_gray_5">
 
             <RelativeLayout
+                android:id="@+id/relativeLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/tab_bar_height"
-                android:background="@color/colorPrimary">
+                android:background="@color/colorPrimaryDark">
 
                 <TextView
                     android:id="@+id/app_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
+                    android:fontFamily="@font/roboto"
                     android:gravity="center"
                     android:text="@string/app_name"
                     android:textAlignment="center"
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/tab_bar_title"
-                    android:fontFamily="@font/roboto" />
+                    android:textSize="@dimen/tab_bar_title" />
 
                 <android.support.v7.widget.AppCompatImageView
                     android:id="@+id/menu_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/menu"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/tab_bar_margin_left"
-                    android:onClick="@{() -> viewModel.drawerIconClicked()}"/>
+                    android:onClick="@{() -> viewModel.drawerIconClicked()}"
+                    android:src="@drawable/menu" />
 
             </RelativeLayout>
 
+            <RelativeLayout
+                android:id="@+id/relativeLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sub_bar_height"
+                android:background="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
+
+                <TextView
+                    android:id="@+id/target_language_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/container_margin_left"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center"
+                    android:text="@string/target_language"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/sub_bar_title_size" />
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/target_language_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="@dimen/container_margin_left"
+                    android:layout_marginTop="8dp"
+                    android:layout_toRightOf="@+id/target_language_text_view"
+                    android:layout_marginRight="@dimen/container_margin_right"
+                    android:background="@color/colorPrimary"
+                    />
+
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:elevation="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/relativeLayout3"
+                android:background="@android:color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_alignParentBottom="true"
+                    android:id="@+id/options_linear_layout"
+                    android:orientation="horizontal">
+
+                    <android.support.v7.widget.AppCompatImageButton
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/translate"
+                        android:background="@android:color/white"
+                        android:onClick="@{() -> viewModel.translateClicked()}" />
+
+                    <android.support.v7.widget.AppCompatImageButton
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/content_copy"
+                        android:background="@android:color/white"
+                        android:onClick="@{() -> viewModel.contentCopyClicked()}"/>
+
+                    <ImageButton
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/share_variant"
+                        android:background="@android:color/white"
+                        android:onClick="@{() -> viewModel.shareClicked()}"/>
+
+                    <ImageButton
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/heart_outline"
+                        android:background="@android:color/white"
+                        android:onClick="@{() -> viewModel.saveClicked()}"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/read_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:padding="@dimen/container_margin_right"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="left"
+                    android:text="hello"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/sub_bar_title_size"
+                    android:layout_above="@+id/options_linear_layout"
+                    android:scrollbars = "vertical"/>
+
+
+            </RelativeLayout>
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/capture_fab"
                 android:layout_width="wrap_content"

@@ -16,30 +16,45 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
+
+import com.androidnetworking.error.ANError;
 import com.google.android.gms.common.api.CommonStatusCodes;
+import com.reshadi.nima.kidocodeimagetranslator.Model.TargetLanguage;
 import com.reshadi.nima.kidocodeimagetranslator.R;
+import com.reshadi.nima.kidocodeimagetranslator.Util.Constans;
+import com.reshadi.nima.kidocodeimagetranslator.View.Adapter.TargetLanguageAdapter;
 import com.reshadi.nima.kidocodeimagetranslator.ViewModel.MainActivityViewModel;
+import com.reshadi.nima.kidocodeimagetranslator.ViewModel.Service.GetLanguagesService;
 import com.reshadi.nima.kidocodeimagetranslator.databinding.ActivityMainBinding;
+
+import java.util.List;
 
 
 public class MainActivity extends ParentActivity implements View.OnClickListener{
 
 
     private ActivityMainBinding activityMainBinding;
-    private static final int RC_OCR_CAPTURE = 9003;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        activityMainBinding.setViewModel(new MainActivityViewModel(activityMainBinding.activityMainDrawer,context));
+
+        activityMainBinding.setViewModel(new MainActivityViewModel(activityMainBinding.activityMainDrawer,
+                activityMainBinding.targetLanguageSpinner,
+                activityMainBinding.readTextView,context));
         activityMainBinding.setLifecycleOwner(this);
 
         TAG = "MainActivity";
 
         setupNavigationDrawer();
+
+
     }
 
     @Override
@@ -50,7 +65,7 @@ public class MainActivity extends ParentActivity implements View.OnClickListener
             intent.putExtra(OcrCaptureActivity.AutoFocus, true);
             intent.putExtra(OcrCaptureActivity.UseFlash, true);
 
-            startActivityForResult(intent, RC_OCR_CAPTURE);
+            startActivityForResult(intent, Constans.RC_OCR_CAPTURE);
         }
     }
 
@@ -79,12 +94,12 @@ public class MainActivity extends ParentActivity implements View.OnClickListener
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode == RC_OCR_CAPTURE) {
+        if(requestCode == Constans.RC_OCR_CAPTURE) {
             if (resultCode == CommonStatusCodes.SUCCESS) {
                 if (data != null) {
                     String text = data.getStringExtra(OcrCaptureActivity.TextBlockObject);
                     //statusMessage.setText(R.string.ocr_success);
-                    //textValue.setText(text);
+                    activityMainBinding.readTextView.setText(text);
                     Log.d(TAG, "Text read: " + text);
                 } else {
                    // statusMessage.setText(R.string.ocr_failure);
@@ -98,4 +113,6 @@ public class MainActivity extends ParentActivity implements View.OnClickListener
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
+
+
 }
