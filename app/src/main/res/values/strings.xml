@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">KidoCodeImageTranslator</string>
+    <string name="app_name">Image Translator</string>
+    <string name="about_us">About us</string>
 </resources>
