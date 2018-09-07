@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Image Translator</string>
     <string name="about_us">About us</string>
+    <string name ="License">MIT License \n Copyright (c) 2018 Nima Reshadi </string>
+    <string name ="visit_us">Visit us \n https://github.com/nimareshadi </string>
 
     //------------OCR Errors-----------------
     <string name="ok">OK</string>

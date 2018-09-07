@@ -3,9 +3,18 @@ package com.reshadi.nima.kidocodeimagetranslator.View.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.graphics.Typeface;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
@@ -30,7 +39,7 @@ public class MainActivity extends ParentActivity implements View.OnClickListener
 
         TAG = "MainActivity";
 
-        //setupNavigationDrawer();
+        setupNavigationDrawer();
     }
 
     @Override
@@ -44,6 +53,29 @@ public class MainActivity extends ParentActivity implements View.OnClickListener
             startActivityForResult(intent, RC_OCR_CAPTURE);
         }
     }
+
+    private void setupNavigationDrawer(){
+
+        activityMainBinding.navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                switch (id) {
+                    case R.id.create_class:
+                        startActivity(new Intent(context, AboutUsActivity.class));
+                        activityMainBinding.activityMainDrawer.closeDrawer(Gravity.LEFT);
+                        break;
+                    default:
+                        return true;
+                }
+                return false;
+            }
+        });
+
+    }
+
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
