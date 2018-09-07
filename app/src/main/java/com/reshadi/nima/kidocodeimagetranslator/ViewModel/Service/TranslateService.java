@@ -4,11 +4,8 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
-import com.reshadi.nima.kidocodeimagetranslator.Model.ServiceRequest.GetLanguagesRequest;
 import com.reshadi.nima.kidocodeimagetranslator.Model.ServiceRequest.TranslateRequest;
-import com.reshadi.nima.kidocodeimagetranslator.Model.ServiceResponse.ParentResponse;
 import com.reshadi.nima.kidocodeimagetranslator.Model.ServiceResponse.TranslateResponse;
-import com.reshadi.nima.kidocodeimagetranslator.Model.TargetLanguage;
 
 import org.json.JSONArray;
 import org.json.JSONException;

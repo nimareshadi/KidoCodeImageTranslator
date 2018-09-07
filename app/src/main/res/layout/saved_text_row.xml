@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
+
+    <TextView
+        android:id="@+id/saved_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        android:padding="@dimen/container_margin_right"
+        android:fontFamily="@font/roboto"
+        android:gravity="left"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/sub_bar_title_size"
+        android:layout_above="@+id/options_linear_layout"
+        android:scrollbars = "vertical"
+        android:text="---"/>
+
+</android.support.constraint.ConstraintLayout>

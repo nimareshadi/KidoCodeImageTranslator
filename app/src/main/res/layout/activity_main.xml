@@ -10,7 +10,8 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.Activity.MainActivity">
+    tools:context=".View.Activity.MainActivity"
+    android:orientation="vertical">
 
 
     <android.support.v4.widget.DrawerLayout
@@ -96,70 +97,80 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/relativeLayout5"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
+                android:background="@android:color/white"
                 android:elevation="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/relativeLayout3"
-                android:background="@android:color/white">
+                app:layout_constraintTop_toBottomOf="@+id/relativeLayout3">
 
                 <LinearLayout
+                    android:id="@+id/options_linear_layout"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_alignParentBottom="true"
-                    android:id="@+id/options_linear_layout"
                     android:orientation="horizontal">
 
                     <android.support.v7.widget.AppCompatImageButton
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:src="@drawable/translate"
                         android:background="@android:color/white"
-                        android:onClick="@{() -> viewModel.translateClicked()}" />
+                        android:onClick="@{() -> viewModel.translateClicked()}"
+                        android:src="@drawable/translate" />
 
                     <android.support.v7.widget.AppCompatImageButton
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:src="@drawable/content_copy"
                         android:background="@android:color/white"
-                        android:onClick="@{() -> viewModel.contentCopyClicked()}"/>
+                        android:onClick="@{() -> viewModel.contentCopyClicked()}"
+                        android:src="@drawable/content_copy" />
 
                     <ImageButton
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:src="@drawable/share_variant"
                         android:background="@android:color/white"
-                        android:onClick="@{() -> viewModel.shareClicked()}"/>
+                        android:onClick="@{() -> viewModel.shareClicked()}"
+                        android:src="@drawable/share_variant" />
 
                     <ImageButton
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:src="@drawable/heart_outline"
                         android:background="@android:color/white"
-                        android:onClick="@{() -> viewModel.saveClicked()}"/>
+                        android:onClick="@{() -> viewModel.saveClicked()}"
+                        android:src="@drawable/heart_outline" />
                 </LinearLayout>
 
                 <TextView
                     android:id="@+id/read_text_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_above="@+id/options_linear_layout"
                     android:layout_alignParentLeft="true"
                     android:layout_centerInParent="true"
-                    android:padding="@dimen/container_margin_right"
                     android:fontFamily="@font/roboto"
                     android:gravity="left"
-                    android:text="hello"
+                    android:padding="@dimen/container_margin_right"
+                    android:scrollbars="vertical"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="@dimen/sub_bar_title_size"
-                    android:layout_above="@+id/options_linear_layout"
-                    android:scrollbars = "vertical"/>
+                    android:textSize="@dimen/sub_bar_title_size" />
 
 
             </RelativeLayout>
+
+            <ListView
+                android:id="@+id/saved_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/relativeLayout5"
+                tools:layout_editor_absoluteX="0dp"
+                tools:ignore="MissingConstraints" />
+
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/capture_fab"
                 android:layout_width="wrap_content"

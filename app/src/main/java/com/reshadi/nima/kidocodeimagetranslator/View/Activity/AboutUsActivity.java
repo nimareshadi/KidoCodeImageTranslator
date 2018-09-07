@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 
 import com.reshadi.nima.kidocodeimagetranslator.R;
 import com.reshadi.nima.kidocodeimagetranslator.ViewModel.AboutUsViewModel;
-import com.reshadi.nima.kidocodeimagetranslator.ViewModel.MainActivityViewModel;
 import com.reshadi.nima.kidocodeimagetranslator.databinding.AboutUsActivityBinding;
 
 public class AboutUsActivity extends ParentActivity {

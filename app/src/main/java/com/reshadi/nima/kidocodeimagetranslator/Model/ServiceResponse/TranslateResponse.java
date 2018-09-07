@@ -1,7 +1,5 @@
 package com.reshadi.nima.kidocodeimagetranslator.Model.ServiceResponse;
 
-import com.reshadi.nima.kidocodeimagetranslator.Model.TargetLanguage;
-
 import java.util.List;
 
 public class TranslateResponse extends ParentResponse{

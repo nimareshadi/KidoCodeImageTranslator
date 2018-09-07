@@ -1,36 +1,20 @@
 package com.reshadi.nima.kidocodeimagetranslator.View.Activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
-import android.graphics.Typeface;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.text.Spannable;
-import android.text.SpannableString;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.SubMenu;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Toast;
 
-
-import com.androidnetworking.error.ANError;
 import com.google.android.gms.common.api.CommonStatusCodes;
-import com.reshadi.nima.kidocodeimagetranslator.Model.TargetLanguage;
 import com.reshadi.nima.kidocodeimagetranslator.R;
 import com.reshadi.nima.kidocodeimagetranslator.Util.Constans;
-import com.reshadi.nima.kidocodeimagetranslator.View.Adapter.TargetLanguageAdapter;
 import com.reshadi.nima.kidocodeimagetranslator.ViewModel.MainActivityViewModel;
-import com.reshadi.nima.kidocodeimagetranslator.ViewModel.Service.GetLanguagesService;
 import com.reshadi.nima.kidocodeimagetranslator.databinding.ActivityMainBinding;
-
-import java.util.List;
 
 
 public class MainActivity extends ParentActivity implements View.OnClickListener{
@@ -47,7 +31,7 @@ public class MainActivity extends ParentActivity implements View.OnClickListener
 
         activityMainBinding.setViewModel(new MainActivityViewModel(activityMainBinding.activityMainDrawer,
                 activityMainBinding.targetLanguageSpinner,
-                activityMainBinding.readTextView,context));
+                activityMainBinding.readTextView,activityMainBinding.savedListView,context));
         activityMainBinding.setLifecycleOwner(this);
 
         TAG = "MainActivity";
@@ -98,15 +82,12 @@ public class MainActivity extends ParentActivity implements View.OnClickListener
             if (resultCode == CommonStatusCodes.SUCCESS) {
                 if (data != null) {
                     String text = data.getStringExtra(OcrCaptureActivity.TextBlockObject);
-                    //statusMessage.setText(R.string.ocr_success);
                     activityMainBinding.readTextView.setText(text);
                     Log.d(TAG, "Text read: " + text);
                 } else {
-                   // statusMessage.setText(R.string.ocr_failure);
                     Log.d(TAG, "No Text captured, intent data is null");
                 }
             } else {
-               // statusMessage.setText(String.format(getString(R.string.ocr_error),CommonStatusCodes.getStatusCodeString(resultCode)));
             }
         }
         else {

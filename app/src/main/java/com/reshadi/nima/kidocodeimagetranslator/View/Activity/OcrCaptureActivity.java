@@ -45,7 +45,7 @@ import com.google.android.gms.vision.text.TextBlock;
 import com.google.android.gms.vision.text.TextRecognizer;
 import com.reshadi.nima.kidocodeimagetranslator.R;
 
-import com.reshadi.nima.kidocodeimagetranslator.View.Activity.OCR.OcrGraphic;
+import com.reshadi.nima.kidocodeimagetranslator.View.Activity.OCR.OcrGraphicUtil;
 import com.reshadi.nima.kidocodeimagetranslator.View.Camera.CameraSource;
 import com.reshadi.nima.kidocodeimagetranslator.View.Camera.CameraSourcePreview;
 import com.reshadi.nima.kidocodeimagetranslator.View.Camera.GraphicOverlay;
@@ -74,7 +74,7 @@ public final class OcrCaptureActivity extends ParentActivity {
 
     private CameraSource mCameraSource;
     private CameraSourcePreview mPreview;
-    public GraphicOverlay<OcrGraphic> mGraphicOverlay;
+    public GraphicOverlay<OcrGraphicUtil> mGraphicOverlay;
 
     // Helper objects for detecting taps and pinches.
     private ScaleGestureDetector scaleGestureDetector;
@@ -89,7 +89,7 @@ public final class OcrCaptureActivity extends ParentActivity {
         setContentView(R.layout.activity_ocr_capture);
 
         mPreview = (CameraSourcePreview) findViewById(R.id.preview);
-        mGraphicOverlay = (GraphicOverlay<OcrGraphic>) findViewById(R.id.graphicOverlay);
+        mGraphicOverlay = (GraphicOverlay<OcrGraphicUtil>) findViewById(R.id.graphicOverlay);
 
         TAG = "OcrCaptureActivity";
 
@@ -326,7 +326,7 @@ public final class OcrCaptureActivity extends ParentActivity {
      * @return true if the activity is ending.
      */
     private boolean onTap(float rawX, float rawY) {
-        OcrGraphic graphic = mGraphicOverlay.getGraphicAtLocation(rawX, rawY);
+        OcrGraphicUtil graphic = mGraphicOverlay.getGraphicAtLocation(rawX, rawY);
         TextBlock text = null;
         if (graphic != null) {
             text = graphic.getTextBlock();

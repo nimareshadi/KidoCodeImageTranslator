@@ -1,19 +1,12 @@
 package com.reshadi.nima.kidocodeimagetranslator.ViewModel.Service;
 
-import android.provider.Contacts;
-import android.util.Log;
-
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
-import com.androidnetworking.interfaces.JSONArrayRequestListener;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.reshadi.nima.kidocodeimagetranslator.Model.ServiceRequest.GetLanguagesRequest;
 import com.reshadi.nima.kidocodeimagetranslator.Model.ServiceResponse.GetLanguagesResponse;
-import com.reshadi.nima.kidocodeimagetranslator.Model.ServiceResponse.ParentResponse;
 import com.reshadi.nima.kidocodeimagetranslator.Model.TargetLanguage;
-import com.reshadi.nima.kidocodeimagetranslator.Util.Constans;
-import com.reshadi.nima.kidocodeimagetranslator.View.Activity.ParentActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
