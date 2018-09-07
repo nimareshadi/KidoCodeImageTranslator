@@ -4,7 +4,7 @@
     <string name ="License">MIT License \n Copyright (c) 2018 Nima Reshadi </string>
     <string name ="visit_us">Visit us \n https://github.com/nimareshadi </string>
     <string name ="target_language">Target language</string>
-    <string name = "api_key">AIzaSyDGA9k6A8XRpHjbDu0y1A_3N7S4_V4OEVo</string>
+    <string name = "api_key">---</string>
     <string name = "text_copied">Text has been copied to clipboard</string>
     <string name = "text_saved">Text has been saved</string>
 
